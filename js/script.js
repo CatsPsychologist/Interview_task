@@ -1,8 +1,11 @@
-const chooseOptimalDistance = (t, k, ls) => {
+const chooseOptimalDistance = (t, k = 1, ls) => {
 
     if(ls.length < 3){
         console.log(null)
-        return
+        return null
+    }
+    if(k < 1){
+        return null
     }
 
     function sum(ls, k){
@@ -39,26 +42,19 @@ const chooseOptimalDistance = (t, k, ls) => {
 
     })
 
-
     let checkArr = Array.from(mySet)
-
 
     let closest = checkArr.reduce(function(prev, curr) {
         return (Math.abs(curr - t) < Math.abs(prev - t) ? curr : prev);
     });
 
-
-    if (typeof closest === "number"){
-        return closest;
-    }else{
-        return  null
-    }
+    return closest
 
 }
 
 
 
 console.log(chooseOptimalDistance(174, 3, [51, 56, 58, 59, 61]));
+console.log(chooseOptimalDistance(163, 3, [50]));
 
-chooseOptimalDistance(163, 3, [50]); // null
 
