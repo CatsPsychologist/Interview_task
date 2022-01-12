@@ -1,7 +1,6 @@
 const chooseOptimalDistance = (t, k = 1, ls) => {
 
-    if(ls.length < 3){
-        console.log(null)
+    if(ls.length < k){
         return null
     }
     if(k < 1){
